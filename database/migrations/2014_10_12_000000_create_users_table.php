@@ -27,8 +27,12 @@ class CreateUsersTable extends Migration
             $table->unsignedInteger('role_id')->default(\App\Role::CLIENT);
             $table->foreign('role_id')->references('id')->on('roles');
             $table->string('name');
+            $table->string('surname');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('identification_document');            
+            $table->string('phone');
+            $table->string('address');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
