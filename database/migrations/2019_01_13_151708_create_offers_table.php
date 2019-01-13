@@ -17,7 +17,7 @@ class CreateOffersTable extends Migration
             $table->increments('id');
             $table->string('city', 100)->nullable();
             $table->string('description');
-            $table->float(price, 8 , 2);
+            $table->float('price', 8 , 2);
             $table->date('fromDay');
             $table->date('toDay');
             $table->boolean('hasDiscount');
