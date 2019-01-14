@@ -289,25 +289,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1547219268698</updated>
-      <workItem from="1547219270212" duration="4340000" />
+      <workItem from="1547219270212" duration="4398000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4340000" />
+    <option name="totallyTimeSpent" value="4398000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1368" height="773" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="npm" side_tool="true" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.3287037" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.3287037" />
       <window_info anchor="bottom" id="Event Log" sideWeight="0.5007553" side_tool="true" weight="0.3287037" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
