@@ -12,5 +12,10 @@ class Client extends Model
     public function users() {
         return $this->hasMany(User::class);
     }
+    
+    public function orders()
+    {
+        return $this->hasMany('App\Order');
+    }
 
 }

@@ -24,7 +24,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        return view('order.create');
     }
 
     /**
@@ -35,18 +35,24 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        \App\Order::create([
+            'order_id' => $request['order_id'],
+            'client_id' => $request['client_id'],
+            'quantity' => $request['quantity']]);
     }
-
+    
     /**
-     * Display the specified resource.
+     * Display an order filtered by order_id.
      *
-     * @param  \App\Order  $order
+     * @param  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function showByClient($id)
     {
-        //
+        $order= Order::where('client_id','=','id');        
+        
+        return View::make('order.show')
+            ->with('order', $order);
     }
 
     /**
@@ -78,8 +84,10 @@ class OrderController extends Controller
      * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
+    public function destroy($id)
     {
-        //
+        // get an order
+        $order = Order::find($id);
+        $order->delete();
     }
 }
