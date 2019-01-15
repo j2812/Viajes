@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
+
+    /**
+     * ClientController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +25,7 @@ class ClientController extends Controller
     public function index()
     {
 
+        return view('home');
 
     }
 
@@ -48,6 +59,8 @@ class ClientController extends Controller
     public function show(Client $client)
     {
         //
+
+        return view('client.profile');
     }
 
     /**

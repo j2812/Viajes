@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'surname', 'identification_document', 'phone', 'address'
     ];
 
     /**
@@ -28,7 +28,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function client() {
-        return $this->hasOne(Client::class);
+
+    public function getFullNameAttribute () {
+
+        return "$this->name $this->surname";
     }
+
 }

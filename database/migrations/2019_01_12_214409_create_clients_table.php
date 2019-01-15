@@ -17,8 +17,8 @@ class CreateClientsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');            
-            $table->string('pan_credit');            
-            $table->boolean('notifications');
+            $table->string('pan_credit')->nullable(true);
+            $table->boolean('notifications')->default(true);
             $table->timestamps();
         });
     }
