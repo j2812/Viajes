@@ -20,8 +20,8 @@ class CreateOffersTable extends Migration
             $table->float('price', 8 , 2);
             $table->date('fromDay');
             $table->date('toDay');
-            $table->boolean('hasDiscount');
-            $table->float('discountPercent', 2 , 1);
+            $table->boolean('hasDiscount')->default(0);
+            $table->float('discountPercent', 2 , 1)->nullable(true);
             $table->timestamps();
         });
     }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreOffer;
+use App\Offer;
 use App\Order;
 use Illuminate\Http\Request;
 
@@ -14,7 +16,7 @@ class OfferController extends Controller
      */
     public function index()
     {
-        //
+        return view('home');
     }
 
     /**
@@ -27,7 +29,7 @@ class OfferController extends Controller
     {
         $offer = Offer::where('client_id','=','id');
         
-        return View::make('offer.show')
+        return view('offer.show')
             ->with('offer', $offer);
     }
     
@@ -41,7 +43,25 @@ class OfferController extends Controller
     {
         $offers = Offer::All();
 
-        return View::make('offer.showall')
+        return view('offer.showall')
             ->with('offers', $offers);
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function create() {
+
+        return view('offer.create');
+    }
+
+    /**
+     * @param StoreOffer $request
+     */
+    public function store(StoreOffer $request){
+
+        $offer = Offer::create($request->all());
+
+        return redirect()->route('home');
     }
 }

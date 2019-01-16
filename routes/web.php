@@ -15,7 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Auth::routes();
 
 Route::get('/home', 'ClientController@index')->name('home');
 Route::get('/profile', 'ClientController@show')->name('client.profile');
+Route::resource('offer', 'OfferController');
