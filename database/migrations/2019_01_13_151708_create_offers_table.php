@@ -18,8 +18,8 @@ class CreateOffersTable extends Migration
             $table->string('city', 100)->nullable();
             $table->string('description');
             $table->float('price', 8 , 2);
-            $table->date('fromDay');
-            $table->date('toDay');
+            $table->timestamp('fromDay');
+            $table->timestamp('toDay');
             $table->boolean('hasDiscount')->default(0);
             $table->float('discountPercent', 2 , 1)->nullable(true);
             $table->string('file', 128)->nullable(true);

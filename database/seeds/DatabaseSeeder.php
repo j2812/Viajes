@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
 
+        factory(\App\Offer::class, 6)->create();
+
 
         // Factory para users
         factory(\App\User::class, 1)->create([

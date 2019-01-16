@@ -27,10 +27,9 @@ class OfferController extends Controller
      */
     public function show($id)
     {
-        $offer = Offer::where('client_id','=','id');
-        
-        return view('offer.show')
-            ->with('offer', $offer);
+        $offer = Offer::get($id);
+
+        return view('offer.detail', compact('offer'));
     }
     
     /**
