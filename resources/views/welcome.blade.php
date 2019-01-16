@@ -5,6 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div id="products" class="row view-group">
+                    @forelse($offers as $offer)
                     <div class="item col-xs-4 col-lg-4">
                         <div class="thumbnail card">
                             <div class="img-event">
@@ -28,6 +29,9 @@
                             </div>
                         </div>
                     </div>
+                    @empty
+                        <p>No hay ofertas</p>
+                    @endforelse
                     <div class="item col-xs-4 col-lg-4">
                         <div class="thumbnail card">
                             <div class="img-event">

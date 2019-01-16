@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreOffer;
 use App\Offer;
 use App\Order;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class OfferController extends Controller
 {
@@ -43,8 +43,7 @@ class OfferController extends Controller
     {
         $offers = Offer::All();
 
-        return view('offer.showall')
-            ->with('offers', $offers);
+        return view('welcome', compact('offers'));
     }
 
     /**
@@ -61,6 +60,11 @@ class OfferController extends Controller
     public function store(StoreOffer $request){
 
         $offer = Offer::create($request->all());
+
+        if ($request->file('file')){
+            $path = Storage::disk('public')->put('image', $request->file('file'));
+            $offer->fill(['file' => asset($path)])->save();
+        }
 
         return redirect()->route('home');
     }

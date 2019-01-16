@@ -15,7 +15,7 @@ class Offer extends Model
      * @var array
      */
     protected $fillable = [
-        'city', 'description', 'price', 'fromDay', 'toDay', 'hasDiscount', 'discountPercent'
+        'city', 'description', 'price', 'fromDay', 'toDay', 'hasDiscount', 'discountPercent', 'file'
         ];
     
     public function getFullOfferAttribute() {

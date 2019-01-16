@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Registro de ofertas') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('offer.store') }}">
+                        <form method="POST" action="{{ route('offer.store') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group row">
@@ -100,6 +100,20 @@
                                     @if ($errors->has('discountPercent'))
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('discountPercent') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="file" class="col-md-4 col-form-label text-md-right">{{ __('Imagen') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="file" type="file" class="form-control{{ $errors->has('file') ? ' is-invalid' : '' }}" name="file" value="{{ old('file') }}">
+
+                                    @if ($errors->has('file'))
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('file') }}</strong>
                                     </span>
                                     @endif
                                 </div>

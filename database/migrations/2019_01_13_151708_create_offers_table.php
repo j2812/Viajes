@@ -22,6 +22,7 @@ class CreateOffersTable extends Migration
             $table->date('toDay');
             $table->boolean('hasDiscount')->default(0);
             $table->float('discountPercent', 2 , 1)->nullable(true);
+            $table->string('file', 128)->nullable(true);
             $table->timestamps();
         });
     }
