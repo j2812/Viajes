@@ -81,11 +81,18 @@ class OrderController extends Controller
     /**
      * @param StoreOffer $client_id, $offer_id, $quantity
      */
-    public function store($client_id, $offer_id, $quantity){        
-        $order = Order::create(['client_id' => $client_id],
-                ['offer_id' => $offer_id],
-                ['quantity' => $quantity]);
+    public function store(Request $request){
 
-        return redirect()->route(Client::class);
+        $request->validate([
+            'quantity' => 'required|min:1'
+        ]);
+
+        Order::create([
+                'offer_id' => $request->get('offer_id'),
+                'client_id' => auth()->user()->client()->pluck('id')->first(),
+                'quantity' => $request->get('quantity'),
+        ]);
+
+        return redirect()->route('client.profile');
     }
 }

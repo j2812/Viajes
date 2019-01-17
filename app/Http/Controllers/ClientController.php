@@ -60,7 +60,7 @@ class ClientController extends Controller
     public function show()
     {
         //
-        $orders= Order::All()->where('client_id',auth()->user()->id);        
+        $orders= Order::All()->where('client_id',auth()->user()->client()->pluck('id')->first());
         
         return view('client.profile', compact('orders'));
     }
