@@ -34,4 +34,8 @@ class User extends Authenticatable
         return "$this->name $this->surname";
     }
 
+    public function client () {
+        return $this->hasMany('client');
+    }
+
 }

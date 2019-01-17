@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Client;
 use App\Order;
 use Illuminate\Http\Request;
 
@@ -85,6 +86,6 @@ class OrderController extends Controller
                 ['offer_id' => $offer_id],
                 ['quantity' => $quantity]);
 
-        return redirect()->route('home');
+        return redirect()->route(Client::class);
     }
 }

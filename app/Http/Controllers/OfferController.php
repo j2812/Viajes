@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Storage;
 
 class OfferController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except('showAll');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -25,11 +31,12 @@ class OfferController extends Controller
      * @param  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Offer $offer)
     {
-        $offer = Offer::get($id);
+        $random = Offer::all();
+        $randoms = $random->random(4);
 
-        return view('offer.detail', compact('offer'));
+        return view('offer.detail', compact('offer', 'randoms'));
     }
     
     /**
