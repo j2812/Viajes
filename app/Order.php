@@ -17,7 +17,7 @@ class Order extends Model
         ];
     
     public function getOrder () {
-        return "Order number: $this->order_id. Quantity: $this->quantity";
+        return "Order number: $this->id. Quantity: $this->quantity";
     }
     
     public function offer()
