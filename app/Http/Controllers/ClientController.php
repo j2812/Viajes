@@ -57,10 +57,10 @@ class ClientController extends Controller
      * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function show(Client $client)
+    public function show()
     {
         //
-$orders= Order::All();//::where('client_id','=','id');        
+        $orders= Order::All()->where('client_id',auth()->user()->id);        
         
         return view('client.profile', compact('orders'));
     }
