@@ -104,7 +104,7 @@
                                                 <h4 style="font-weight:bold;">Tus pedidos</h4>
                                                 </br>
                                                 @forelse($orders as $order)
-                                                <li><b>Número de pedido {{$order->id}}</b> con destino a {{$order->offer->city}}. Número de viajeros: {{$order->quantity}}</li>
+                                                <li><b>Número de pedido {{$order->id}}</b> con destino a {{$order->offer->city}}. Número de viajeros: {{$order->quantity}}. Precio total: {{($order->quantity * $order->offer->price)}} $</li>
                                                 @empty
                                                 <li>No hay pedidos</li>
                                                 @endforelse

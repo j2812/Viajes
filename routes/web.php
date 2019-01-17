@@ -20,5 +20,6 @@ Auth::routes();
 Route::get('/home', 'ClientController@index')->name('home');
 Route::get('/profile', 'ClientController@show')->name('client.profile');
 Route::resource('offer', 'OfferController');
-Route::post('/client/profile', 'OrderController@store')->name('order.store');
-Route::get('/offerbuyed', 'OrderController@showok')->name('offerbuyed');
+
+Route::post('/order', 'OrderController@store')->name('order.store');
+

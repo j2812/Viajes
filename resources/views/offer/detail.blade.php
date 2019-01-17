@@ -45,13 +45,14 @@
                                 Del {{ $offer->fromDay->format('d-M-Y') }} al
                                 {{ $offer->toDay->format('d-M-Y') }}
                             </p>
-                            <form method="POST" action="{{ route('order.store') }}">
+                            <form method="post" action="{{ route('order.store') }}">
                                 @csrf
-                                
+                                {{ Auth::user()->client()->pluck('id')->first() }}
                                 <label for="quanty">Cantidad</label>
+                                <input type="hidden" id="offer_id" name="offer_id" value="{{ $offer->id }}">
                                 <input type="number" name="quantity" min="1"
                                        id="quantity" class="form-control
-                                       mb-5 input-lg"
+                                       mb-5 input-lg {{ $errors->has('quantity') ? ' is-invalid' : '' }}"
                                        placeholder="Ingrese una cantidad">
                                 <input type="hidden" name="offer_id" value="{{ $offer->id }}">
                                 <input type="hidden" name="client_id" value="{{ auth()->user()->id }}">

@@ -10,7 +10,7 @@ class Client extends Model
     protected $fillable = ['user_id'];
 
     public function users() {
-        return $this->hasMany(User::class);
+        return $this->belongsTo('App\User');
     }
     
     public function orders()
