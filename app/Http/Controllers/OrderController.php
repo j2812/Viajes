@@ -26,20 +26,6 @@ class OrderController extends Controller
     {
         return view('order.create');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        \App\Order::create([
-            'order_id' => $request['order_id'],
-            'client_id' => $request['client_id'],
-            'quantity' => $request['quantity']]);
-    }
     
     /**
      * Display an order filtered by order_id.
@@ -89,5 +75,16 @@ class OrderController extends Controller
         // get an order
         $order = Order::find($id);
         $order->delete();
+    }
+    
+    /**
+     * @param StoreOffer $client_id, $offer_id, $quantity
+     */
+    public function store($client_id, $offer_id, $quantity){        
+        $order = Order::create(['client_id' => $client_id],
+                ['offer_id' => $offer_id],
+                ['quantity' => $quantity]);
+
+        return redirect()->route('home');
     }
 }

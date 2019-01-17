@@ -76,6 +76,19 @@
                                                 {{ auth()->user()->address }}
                                             </div>
                                         </div>
+                                        
+                                        <div class="row">
+                                            <div>
+                                                </br>
+                                                <h4 style="font-weight:bold;">Tus pedidos</h4>
+                                                </br>
+                                                @forelse($orders as $order)
+                                                <li><b>Número de pedido {{$order->id}}.</b> Número de unidades: {{$order->quantity}}</li>
+                                                @empty
+                                                <li>No hay pedidos</li>
+                                                @endforelse
+                                            </div>                                            
+                                        </div>
                                         <hr />
 
                                     </div>

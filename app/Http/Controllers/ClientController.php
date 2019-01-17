@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Client;
+use App\Order;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -59,8 +60,9 @@ class ClientController extends Controller
     public function show(Client $client)
     {
         //
-
-        return view('client.profile');
+$orders= Order::All();//::where('client_id','=','id');        
+        
+        return view('client.profile', compact('orders'));
     }
 
     /**

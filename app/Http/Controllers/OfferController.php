@@ -41,8 +41,10 @@ class OfferController extends Controller
     public function showAll()
     {
         $offers = Offer::All();
+        
+        $orders = Order::All();
 
-        return view('welcome', compact('offers'));
+        return view('welcome', compact('offers','orders'));
     }
 
     /**
