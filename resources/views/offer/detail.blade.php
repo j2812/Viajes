@@ -47,7 +47,7 @@
                             </p>
                             <form action="post" action="">
                                 @csrf
-                                {{ auth()->user()->client->id }}
+                                
                                 <label for="quanty">Cantidad</label>
                                 <input type="number" name="quantity" min="1"
                                        id="quantity" class="form-control
