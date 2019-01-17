@@ -9,7 +9,7 @@
                         <div class="product-info">
                             <div class="product-gallery">
                                 <div class="product-gallery-featured">
-                                    <img src="{{ $offer->file }}" alt="">
+                                    <img src="{{ $offer->file }}" alt="" height="200" width="400">
                                 </div>
                             </div>
                             <div class="product-seller-recommended">
@@ -18,7 +18,7 @@
                                     <div class="recommended-items card-deck">
                                         @forelse($randoms as $random)
                                             <div class="card">
-                                                <img src="{{ $random->file }}" alt="" class="card-img-top">
+                                                <img src="{{ $random->file }}" alt="" class="card-img-top" height="60" width="140">
                                                 <div class="card-body">
                                                     <h5 class="card-title">U$ {{ $random->price }}</h5>
                                                     <span class="text-muted"><a href="{{ route('offer.show', $random->id) }}"><small>{{ $random->city }}</small></a></span>
@@ -45,7 +45,7 @@
                                 Del {{ $offer->fromDay->format('d-M-Y') }} al
                                 {{ $offer->toDay->format('d-M-Y') }}
                             </p>
-                            <form action="post" action="">
+                            <form method="POST" action="{{ route('order.store') }}">
                                 @csrf
                                 
                                 <label for="quanty">Cantidad</label>
@@ -53,7 +53,9 @@
                                        id="quantity" class="form-control
                                        mb-5 input-lg"
                                        placeholder="Ingrese una cantidad">
-                                <button class="btn btn-primary btn-lg btn-block">Comprar</button>
+                                <input type="hidden" name="offer_id" value="{{ $offer->id }}">
+                                <input type="hidden" name="client_id" value="{{ auth()->user()->id }}">
+                                <button type="submit"  class="btn btn-primary btn-lg btn-block">Comprar</button>
                             </form>
                         </div>
                     </div>

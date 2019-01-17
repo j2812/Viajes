@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Http\Requests\StoreOrder;
 use App\Client;
+use App\Offer;
 use App\Order;
 use Illuminate\Http\Request;
 
@@ -43,6 +46,19 @@ class OrderController extends Controller
     }
 
     /**
+     * Display an order filtered by order_id.
+     *
+     * @param  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showok()
+    {        
+        $offers = Offer::All();
+
+        return view('offerbuyed', compact('offers'));
+    }
+    
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Order  $order
@@ -81,11 +97,9 @@ class OrderController extends Controller
     /**
      * @param StoreOffer $client_id, $offer_id, $quantity
      */
-    public function store($client_id, $offer_id, $quantity){        
-        $order = Order::create(['client_id' => $client_id],
-                ['offer_id' => $offer_id],
-                ['quantity' => $quantity]);
+    public function store(StoreOrder $request){  
+        $order = Order::create($request->all());
 
-        return redirect()->route(Client::class);
+        return redirect()->route('offerbuyed');
     }
 }

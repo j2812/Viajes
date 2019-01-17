@@ -13,11 +13,11 @@ class Order extends Model
      * @var array
      */
     protected $fillable = [
-        'order_id', 'client_id', 'quantity'
+        'offer_id', 'client_id', 'quantity'
         ];
     
     public function getOrder () {
-        return "Order number: $this->order_id. Quantity: $this->quantity";
+        return "Order number: $this->id. Quantity: $this->quantity";
     }
     
     public function offer()
