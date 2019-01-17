@@ -16,13 +16,8 @@ class Order extends Model
         'offer_id', 'client_id', 'quantity'
         ];
     
-    public function getOrder () {
-        return "Order number: $this->id. Quantity: $this->quantity";
-    }
-    
-    public function offer()
-    {
-        return $this->hasOne('App\Offer');
+    public function offer() {    
+        return $this->belongsTo('App\Offer', 'offer_id');    
     }
     
     public function client()

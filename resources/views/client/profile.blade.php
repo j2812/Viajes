@@ -75,15 +75,36 @@
                                             <div class="col-md-8 col-6">
                                                 {{ auth()->user()->address }}
                                             </div>
+                                        </div>     
+                                        <hr />
+                                        <hr />
+                                        <h4 style="font-weight:bold;">Información administrador</h4>
+                                        <!-- Esto solo lo verá el administrador -->
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-3 col-5">
+                                                <label style="font-weight:bold;">Total de pedidos clientes</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                {{ $countOrders }}
+                                            </div>                                                                                    </div>
+                                        <hr />
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-3 col-5">
+                                                <label style="font-weight:bold;">Cantidad de turistas</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                {{ $countQuantity }}
+                                            </div>
                                         </div>
-                                        
+                                        <!-- Esto solo lo verá el administrador -->
+                                        <hr />                                        
                                         <div class="row">
                                             <div>
                                                 </br>
                                                 <h4 style="font-weight:bold;">Tus pedidos</h4>
                                                 </br>
                                                 @forelse($orders as $order)
-                                                <li><b>Número de pedido {{$order->id}}.</b> Número de unidades: {{$order->quantity}}</li>
+                                                <li><b>Número de pedido {{$order->id}}</b> con destino a {{$order->offer->city}}. Número de viajeros: {{$order->quantity}}</li>
                                                 @empty
                                                 <li>No hay pedidos</li>
                                                 @endforelse

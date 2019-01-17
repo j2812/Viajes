@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Client;
+use App\Offer;
+use App\Admin;
 use App\Order;
 use Illuminate\Http\Request;
 
@@ -60,9 +62,12 @@ class ClientController extends Controller
     public function show()
     {
         //
-        $orders= Order::All()->where('client_id',auth()->user()->id);        
+        $orders= Order::All()->where('client_id',auth()->user()->id); 
+        $countOrders= Order::All()->count();
+        $countQuantity= Order::All()->sum('quantity');
+        $admin= Admin::All()->where('user_id',auth()->user()->id); 
         
-        return view('client.profile', compact('orders'));
+        return view('client.profile', compact('orders', 'countOrders', 'countQuantity','admin'));
     }
 
     /**
