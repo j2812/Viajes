@@ -78,6 +78,7 @@
                                         </div>     
                                         <hr />
                                         <hr />
+                                        @if(Auth::user()->admin()->pluck('id')->first())
                                         <h4 style="font-weight:bold;">Información administrador</h4>
                                         <!-- Esto solo lo verá el administrador -->
                                         <div class="row">
@@ -97,7 +98,8 @@
                                             </div>
                                         </div>
                                         <!-- Esto solo lo verá el administrador -->
-                                        <hr />                                        
+                                        <hr />
+                                        @endif
                                         <div class="row">
                                             <div>
                                                 </br>

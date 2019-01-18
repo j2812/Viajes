@@ -25,7 +25,10 @@ class DatabaseSeeder extends Seeder
             'phone' => '315618',
             'address' => 'Carrera 7 67 - 12',
             'password' => bcrypt('secret')
-        ]);
+        ])
+        ->each(function (App\User $user){
+            factory(App\Admin::class, 1)->create(['user_id' => $user->id, 'role' => 'admin']);
+        });
 
     }
 }

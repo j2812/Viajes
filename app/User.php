@@ -39,6 +39,6 @@ class User extends Authenticatable
     }
 
     public function admin () {
-        return $this->hasMany('App\Admin');
+        return $this->hasOne(Admin::class);
     }
 }

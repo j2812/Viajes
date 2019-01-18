@@ -10,7 +10,7 @@ $factory->define(\App\Offer::class, function (Faker $faker) {
         'fromDay' => $faker->date('Y-m-d'),
         'toDay' => $faker->date('Y-m-d'),
         'hasDiscount' => rand(0, 1),
-        'discountPercent' => rand(0, 25),
+        'discountPercent' => rand(0, 10),
         'file' => 'http://placehold.it/400x250/000/fff',
     ];
 });
