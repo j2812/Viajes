@@ -13,8 +13,6 @@
 
 Route::get('/', 'OfferController@showAll')->name('inicio');
 
-
-
 Auth::routes();
 
 Route::get('/home', 'ClientController@index')->name('home');
